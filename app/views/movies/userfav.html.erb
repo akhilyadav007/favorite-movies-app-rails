@@ -1,0 +1,20 @@
+<h1>user's favorite movies page</h1>
+
+<table border='2'>
+  <thead>
+    <tr>
+      <th>favorites</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @favorites.each do |favorite|%>
+  <tr>
+    <td><%= favorite.movie.name %></td>
+    <%# <td><%= favorite.user.username %></td> %>
+  </tr>
+  <% end %>
+ </tbody>
+</table>
+
+<%= link_to 'Back',movies_userlist_path%>
+

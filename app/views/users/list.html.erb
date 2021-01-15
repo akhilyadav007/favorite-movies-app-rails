@@ -1,0 +1,6 @@
+<h1>Your Favorite Movies list</h1>
+<% @favorites.each do |favorite|%>
+  <%= favorite.movie.name %><br>
+<% end %>
+
+ <%= link_to 'back to all movies list', users_path%>

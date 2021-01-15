@@ -1,0 +1,9 @@
+
+<h1>Showing movies details</h1>
+<p><strong>Title: </strong><%= @movies.name %></p>
+<p><strong>Geners: </strong><%= @movies.geners %></p>
+<p><strong>Year: </strong><%= @movies.year %></p>
+<p><strong>director: </strong><%= @movies.director %></p>
+<p><strong>Main_star: </strong><%= @movies.main_star %></p>
+<%= link_to favorite_text, favorites_update_path(movie: @movies), id: 'favorite_link', remote: true %>
+<%= link_to 'Back',root_path%>

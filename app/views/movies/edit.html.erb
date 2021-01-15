@@ -1,0 +1,42 @@
+<h1>edit movies</h1>
+
+
+<%= form_with(model: @movies, local: true) do |f| %>
+	<p>
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %> 
+	</p>
+
+	<p>
+    <%= f.label :genres %> <br>
+     <%= f.select :geners, options_for_select([["Select genres"], "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Fantasy", "History", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"], selected: f.object.geners) %>
+	</p>
+
+  <p>
+    <%= f.label :year %> <br>
+    <%= f.number_field :year %> 
+	</p>
+
+  <p>
+    <%= f.label :description %> <br>
+    <%= f.text_area :description %> 
+	</p>
+
+  <p>
+    <%= f.label :director %> <br>
+    <%= f.text_area :director %> 
+	</p>
+
+  <p>
+    <%= f.label :main_star %> <br>
+    <%= f.text_area :main_star %> 
+	</p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+
+<% end %>
+<%= link_to 'Back',movies_path%>

@@ -1,0 +1,28 @@
+<h1>Movies listing page</h1>
+<%= link_to 'Add movies',new_movie_path%> || <%= link_to 'Users list',movies_userlist_path%>
+<table border="2">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>year</th>
+      <th>Favorited</th>
+      <th col='3'>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %> 
+      <tr>
+        <td><%= link_to movie.name, edit_movie_path(movie.id)  %></td>
+        <td><%= movie.year %></td>
+        <td><%=Favorite.where(movie_id: movie.id).count%></td>
+        <td><%= link_to 'show', movie_path(movie.id)%></td>
+        <td><%= link_to 'delete', movie_path(movie.id), method: :delete, data: {confirm: "Are You Sure?"} %></td>
+      </tr>
+    <% end %>
+  
+  </tbody>
+</table>
+
+<%= link_to('Logout', destroy_admin_session_path, method: :delete) %>
+

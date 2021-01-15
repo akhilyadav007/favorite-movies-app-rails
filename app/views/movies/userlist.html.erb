@@ -1,0 +1,23 @@
+
+<h1>Users listing page</h1>
+
+<table border="2">
+  <thead>
+    <tr>
+      <th>username</th>
+      <th>favorited movies</th>
+      <th>Delete User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %> 
+      <tr>
+        <td><%= link_to user.username, "/movies/userlist/#{user.id}"%></td>
+        <td><%=Favorite.where(user_id: user.id).count%></td>
+        <td><%= link_to 'delete', user_path(user.id), method: :delete, data: {confirm: "Are You Sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back',movies_path%>
